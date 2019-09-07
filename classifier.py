@@ -68,7 +68,7 @@ train_generator = train_datagen.flow_from_directory(
     target_size=(img_width, img_height), 
     batch_size=batch_size, 
     class_mode='categorical', 
-    classes=['fruit', 'vegetable', 'egg', 'meat', 'condiments', 'dairy']) 
+    classes=['fruit', 'vegetable', 'egg', 'meat', 'condiments', 'dairy'])
 
 print(train_generator.class_indices)
 
@@ -86,9 +86,9 @@ model.fit_generator(
     validation_data=validation_generator, 
     validation_steps=nb_validation_samples // batch_size) 
 
-model.save_weights('teeth_classifier.h5') 
+model.save_weights('food_classifier.h5') 
 
-test_image_dir_path = 'C:/Users/nico/teethclassification/test_images/bad/'
+test_image_dir_path = 'test_images/bad/'
 test_image = []
 img = image.load_img(test_image_dir_path + 'test_' + str(1) + '.jpg', target_size= (img_width, img_height))
 img = image.img_to_array(img)
