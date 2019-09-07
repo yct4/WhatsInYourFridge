@@ -13,8 +13,8 @@ train_data_dir = 'train'
 validation_data_dir = 'test'
 
 # Total samples (below x 2 for good and bad)
-nb_train_samples = 222
-nb_validation_samples = 20
+nb_train_samples = 48 + 191 + 15 + 34 # veg + fruit + egg + condiments
+nb_validation_samples = 29 + 26 # fruit + vegetable
 
 img_width = 300
 img_height = 300
@@ -46,7 +46,7 @@ model.add(Flatten())
 model.add(Dense(64)) 
 model.add(Activation('relu')) 
 model.add(Dropout(0.5)) 
-model.add(Dense(1)) 
+model.add(Dense(4)) # edited
 model.add(Activation('sigmoid'))
 
 
@@ -68,7 +68,7 @@ train_generator = train_datagen.flow_from_directory(
     target_size=(img_width, img_height), 
     batch_size=batch_size, 
     class_mode='categorical', 
-    classes=['fruit', 'vegetable'])
+    classes=['condiments', 'egg', 'fruit', 'vegetable'])
 
 print(train_generator.class_indices)
 
@@ -77,7 +77,7 @@ validation_generator = test_datagen.flow_from_directory(
     target_size=(img_width, img_height), 
     batch_size=batch_size, 
     class_mode='categorical', 
-    classes=['fruit', 'vegetable']) 
+    classes=['condiments', 'egg', 'fruit', 'vegetable']) 
   
 model.fit_generator( 
     train_generator, 
@@ -88,7 +88,7 @@ model.fit_generator(
 
 model.save_weights('food_classifier.h5') 
 
-test_image_dir_path = 'test_images/bad/'
+test_image_dir_path = 'test_images/fruit/'
 test_image = []
 img = image.load_img(test_image_dir_path + 'test_' + str(1) + '.jpg', target_size= (img_width, img_height))
 img = image.img_to_array(img)

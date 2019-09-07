@@ -5,7 +5,8 @@ import os
 img_width = 300
 img_height = 300
 
-dirList = {"fruit", "vegetable", "egg", "meat", "condiments", "dairy"}
+#dirList = {"fruit", "vegetable", "egg", "meat", "condiments", "dairy"}
+dirList = {"fruit", "vegetable", "egg", "condiments"}
 
 for d in dirList:
 	dirname = os.fsencode(d)
@@ -15,7 +16,7 @@ for d in dirList:
 			im1 = Image.open(d + "/" + f)
 			im2 = im1.resize((img_width, img_height), Image.NEAREST)
 			im3 = im2.convert("RGB")
-			im3.save(d + "/" + f)
+			im3.save("train/" + d + "/" + f)
 			continue
 		else: 
 			continue
