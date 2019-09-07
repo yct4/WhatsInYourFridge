@@ -7,10 +7,10 @@ from keras import backend as K
 import numpy as np
 
 # Training data directory
-train_data_dir = 'training_images'
+train_data_dir = 'train'
 
 # Test data
-validation_data_dir = 'test_images'
+validation_data_dir = 'test'
 
 # Total samples (below x 2 for good and bad)
 nb_train_samples = 222
@@ -68,7 +68,7 @@ train_generator = train_datagen.flow_from_directory(
     target_size=(img_width, img_height), 
     batch_size=batch_size, 
     class_mode='categorical', 
-    classes=['fruit', 'vegetable', 'egg', 'meat', 'condiments', 'dairy'])
+    classes=['fruit', 'vegetable'])
 
 print(train_generator.class_indices)
 
@@ -77,7 +77,7 @@ validation_generator = test_datagen.flow_from_directory(
     target_size=(img_width, img_height), 
     batch_size=batch_size, 
     class_mode='categorical', 
-    classes=['fruit', 'vegetable', 'egg', 'meat', 'condiments', 'dairy']) 
+    classes=['fruit', 'vegetable']) 
   
 model.fit_generator( 
     train_generator, 
