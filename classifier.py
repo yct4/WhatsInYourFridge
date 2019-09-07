@@ -5,10 +5,6 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras import backend as K
 import numpy as np
-import Image
-
-img_width = 150
-img_height = 70
 
 # Training data directory
 train_data_dir = 'training_images'
@@ -20,6 +16,8 @@ validation_data_dir = 'test_images'
 nb_train_samples = 222
 nb_validation_samples = 20
 
+img_width = 300
+img_height = 300
 
 # Define epoch and batch size (what exactly is this?)
 epochs = 10
