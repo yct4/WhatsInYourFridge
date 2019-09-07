@@ -5,7 +5,7 @@ import os
 img_width = 300
 img_height = 300
 
-dirList = {"fruit", "vegetable", "egg", "meat", "condiments", "dairy"}
+dirList = {"fruit", "vegetable"}
 
 for d in dirList:
 	dirname = os.fsencode(d)
