@@ -141,4 +141,5 @@ for i in prediction :
         print (str(idx) + ':vegetable, ')
     idx = idx + 1
 
+
 #print(prediction)
